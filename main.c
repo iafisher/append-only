@@ -279,3 +279,9 @@ struct Token consume(struct Parser* p, int t) {
 struct Parser {
   struct Tokenizer tz;
 };
+
+// ...and define the parser functions as simple wrappers
+
+int parser_done(struct Parser* p) {
+  return tokenizer_done(&p->tz);
+}
