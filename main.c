@@ -578,3 +578,13 @@ void test_eval3() {
 void test_eval4() {
   assert_int_eq(eval_string4("(+ 1 2)"), 3);
 }
+
+void test_eval5() {
+  assert_int_eq(
+    eval_string4(
+      "(* (- 7 4) (+ (/ 26 2) 1))"
+    )
+,
+    42
+  );
+}
