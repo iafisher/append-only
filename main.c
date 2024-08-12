@@ -567,3 +567,9 @@ int eval_string4(const char* p) {
   struct Tree* tr = parser_parse4(&pr);
   return eval2(tr);
 }
+
+// need to redefine our test cases to use eval_string4
+
+void test_eval3() {
+  assert_int_eq(eval_string("(+ 1 2)"), 3);
+}
