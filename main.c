@@ -356,3 +356,17 @@ int eval_string(const char* p) {
   struct Tree tr = parser_parse(&pr);
   return eval2(&tr);
 }
+
+// oops, accidentally used parser_parse instead of parser_parse2 in eval_string
+// fortunately parser_parse isn't defined and we can patch it up to use
+// parser_parse2
+
+struct Tree parser_parse(struct Parser* p) {
+  struct Tree* tr = parser_parse2(p);
+  return *tr;
+}
+
+// returning a tree struct instead of a pointer means that users of parser_parse
+// won't be able to free the heap memory -- which is okay because we weren't
+// doing that anyway
+
