@@ -107,3 +107,15 @@ int tokenizer_done(struct Tokenizer* tz) {
 struct Token tokenizer_current(struct Tokenizer* tz) {
   return tz->t;
 }
+
+// Before defining tokenizer_advance, let's start writing the parser to get an
+// idea of how it will be used.
+
+// The parser should take in a tokenizer and return a tree.
+// I don't know yet whether the parser will need to be stateful, so let's
+// declare a Parser type to be safe.
+struct Parser;
+
+struct Parser parser_init(struct Tokenizer* tz);
+struct Tree parser_parse(struct Parser*);
+
