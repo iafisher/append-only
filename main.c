@@ -306,3 +306,9 @@ int eval2(struct Tree*);
 
 int eval_leaf(struct Tree*);
 int eval_binary(struct Tree*);
+
+// eval_leaf is dead simple
+
+int eval_leaf(struct Tree* tr) {
+  return tr->value;
+}
