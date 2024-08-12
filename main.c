@@ -378,3 +378,8 @@ void skip_whitespace(struct Tokenizer*);
 
 void set_token(struct Tokenizer*, int t, size_t n);
 size_t read_number(struct Tokenizer*);
+
+// I kept messing up the definition of tokenizer_advance, so I'll break it into
+// smaller pieces
+
+int read_single_char(struct Tokenizer*);
