@@ -499,3 +499,12 @@ int eval_string3(const char* p) {
 
 // I see what's wrong: consume() doesn't advance to the next token.
 // Unfortunately this is going to be very annoying to fix.
+
+struct Token consume2(struct Parser* p, int t) {
+  struct Token tk = parser_current(p);
+  if (tk.t != t) {
+    parser_bail("unexpected token type");
+  }
+  parser_advance(p);
+  return tk;
+}
