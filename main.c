@@ -259,3 +259,6 @@ struct Tree* parser_parse3(struct Parser* p) {
   }
   return r;
 }
+
+// now that the top-level parsing functions are done, let's work our way down.
+
