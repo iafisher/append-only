@@ -102,3 +102,8 @@ struct Tokenizer tokenizer_init(const char* p) {
 int tokenizer_done(struct Tokenizer* tz) {
   return tz->i >= tz->n;
 }
+
+// tokenizer_current just returns the `t` field
+struct Token tokenizer_current(struct Tokenizer* tz) {
+  return tz->t;
+}
