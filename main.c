@@ -163,3 +163,13 @@ struct Tree* leaf_node(int x) {
   r->right = NULL;
   return r;
 }
+
+// We're definitely going to need a recursive function to parse expressions.
+
+struct Tree* match_expression(struct Parser*);
+
+// Also, since trees are going to be heap-allocated, we should change the
+// signature of parser_parse to return a pointer.
+
+struct Tree* parser_parse2(struct Parser*);
+
