@@ -285,3 +285,7 @@ struct Parser {
 int parser_done(struct Parser* p) {
   return tokenizer_done(&p->tz);
 }
+
+struct Token parser_current(struct Parser* p) {
+  return tokenizer_current(&p->tz);
+}
