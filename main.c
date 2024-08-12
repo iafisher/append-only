@@ -400,3 +400,15 @@ void tokenizer_advance(struct Tokenizer* tz) {
     set_token(tz, typ, 1);
   }
 }
+
+#include <ctype.h>
+
+void skip_whitespace(struct Tokenizer* tz) {
+  while (!tokenizer_done(tz)) {
+    char c = tz->p[tz->i];
+    if (!isspace(c)) {
+      break;
+    }
+    tz->i++;
+  }
+}
