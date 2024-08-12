@@ -270,3 +270,12 @@ struct Token consume(struct Parser* p, int t) {
   }
   return tk;
 }
+
+// it's evident now that parser_advance, parser_current, and parser_done just
+// need to call out to the tokenizer class
+
+// so we can finally define the parser
+
+struct Parser {
+  struct Tokenizer tz;
+};
