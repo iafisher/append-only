@@ -173,3 +173,20 @@ struct Tree* match_expression(struct Parser*);
 
 struct Tree* parser_parse2(struct Parser*);
 
+
+// Now, parser_parse2 can just delegate to match_expression
+
+void parser_bail(const char* msg) {
+  fprintf(stderr, "parser error: %s\n", msg);
+  exit(1);
+}
+
+int parser_done(struct Parser*);
+
+struct Tree* parser_parse2(struct Parser* p) {
+  struct Tree* r = match_expression(p);
+  if (!parser_done(p)) {
+    parser_bail("trailing input");
+  }
+  return r;
+}
