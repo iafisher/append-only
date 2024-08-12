@@ -193,3 +193,8 @@ struct Tree* parser_parse2(struct Parser* p) {
 
 // This seems like a function we'll need in the parser.
 struct Token consume(struct Parser*, int);
+
+// another potentially useful function
+int is_op_token(int t) {
+  return t == TOKEN_PLUS || t == TOKEN_MINUS || t == TOKEN_MUL || t == TOKEN_DIV;
+}
