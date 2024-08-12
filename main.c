@@ -312,3 +312,20 @@ int eval_binary(struct Tree*);
 int eval_leaf(struct Tree* tr) {
   return tr->value;
 }
+
+int eval_binary(struct Tree* tr) {
+  int left = eval2(tr->left);
+  int right = eval2(tr->right);
+  if (tr->op == '+') {
+    return left + right;
+  } else if (tr->op == '-') {
+    return left - right;
+  } else if (tr->op == '*') {
+    return left * right;
+  } else if (tr->op == '/') {
+    return left / right;
+  } else {
+    // should never happen
+    return -1;
+  }
+}
