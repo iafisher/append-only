@@ -476,3 +476,13 @@ void test_tokenizer1() {
   tokenizer_advance(&tz);
   assert_token(&tz, TOKEN_EOF);
 }
+
+// I think the problem is that I forgot to call tokenizer_advance in eval_string
+
+int eval_string2(const char* p) {
+  struct Tokenizer tz = tokenizer_init(p);
+  tokenizer_advance(&tz);
+  struct Parser pr = parser_init(&tz);
+  struct Tree* tr = parser_parse2(&pr);
+  return eval2(tr);
+}
