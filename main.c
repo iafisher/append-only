@@ -486,3 +486,13 @@ int eval_string2(const char* p) {
   struct Tree* tr = parser_parse2(&pr);
   return eval2(tr);
 }
+
+// ah, I'm calling parser_parse2 instead of parser_parse3
+
+int eval_string3(const char* p) {
+  struct Tokenizer tz = tokenizer_init(p);
+  tokenizer_advance(&tz);
+  struct Parser pr = parser_init(&tz);
+  struct Tree* tr = parser_parse3(&pr);
+  return eval2(tr);
+}
