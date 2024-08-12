@@ -370,3 +370,8 @@ struct Tree parser_parse(struct Parser* p) {
 // won't be able to free the heap memory -- which is okay because we weren't
 // doing that anyway
 
+
+// time to define tokenizer_advance!
+
+// this will probably come in handy
+void skip_whitespace(struct Tokenizer*);
