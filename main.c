@@ -155,3 +155,11 @@ struct Tree* binary_node(char op, struct Tree* left, struct Tree* right) {
   r->op = op;
   return r;
 }
+
+struct Tree* leaf_node(int x) {
+  struct Tree* r = malloc(sizeof *r);
+  r->value = x;
+  r->left = NULL;
+  r->right = NULL;
+  return r;
+}
