@@ -537,3 +537,16 @@ struct Tree* match_expression3(struct Parser* p) {
     parser_bail("expected expression");
   }
 }
+
+struct Tree* match_binary_expression3(struct Parser* p) {
+  consume2(p, TOKEN_LPAREN);
+  struct Token t = parser_current(p);
+  if (!is_op_token(t.t)) {
+    parser_bail("expected op");
+  }
+  parser_advance(p);
+  struct Tree* left = match_expression3(p);
+  struct Tree* right = match_expression3(p);
+  consume2(p, TOKEN_RPAREN);
+  return binary_node(*t.s, left, right);
+}
