@@ -450,3 +450,13 @@ size_t read_number(struct Tokenizer* tz) {
   }
   return n;
 }
+
+// OK, right now it doesn't work
+// let's write some tokenizer tests
+
+void assert_token(struct Tokenizer* tz, int t) {
+  struct Token tk = tokenizer_current(tz);
+  if (tk.t != t) {
+    printf("assertion failure: expected token %d, got %d\n", t, tk.t);
+  }
+}
