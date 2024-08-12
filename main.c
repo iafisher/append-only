@@ -33,3 +33,12 @@ int eval_string(const char*);
 void test_eval1() {
   assert_int_eq(eval_string("(+ 1 2)"), 3);
 }
+
+void test_eval2() {
+  assert_int_eq(
+    eval_string(
+      "(* (- 7 4) (+ (/ 26 2) 1))"
+    ),
+    42
+  );
+}
