@@ -573,3 +573,8 @@ int eval_string4(const char* p) {
 void test_eval3() {
   assert_int_eq(eval_string("(+ 1 2)"), 3);
 }
+
+// oops, I messed it up again
+void test_eval4() {
+  assert_int_eq(eval_string4("(+ 1 2)"), 3);
+}
