@@ -329,3 +329,13 @@ int eval_binary(struct Tree* tr) {
     return -1;
   }
 }
+
+// eval2 just needs to select the proper function
+
+int eval2(struct Tree* tr) {
+  if (tr->left != NULL) {
+    return eval_binary(tr);
+  } else {
+    return eval_leaf(tr);
+  }
+}
