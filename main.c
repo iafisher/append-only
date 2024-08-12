@@ -135,3 +135,12 @@ int TOKEN_UNKNOWN = 9;
 // Some tree initialization functions
 struct Tree* binary_node(char op, struct Tree* left, struct Tree* right);
 struct Tree* leaf_node(int);
+
+// Simple Tree class
+struct Tree {
+  // if not NULL, this is a branching node
+  struct Tree* left;
+  struct Tree* right;
+  int value;
+  char op;
+};
