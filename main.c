@@ -559,3 +559,11 @@ struct Tree* parser_parse4(struct Parser* p) {
   }
   return r;
 }
+
+int eval_string4(const char* p) {
+  struct Tokenizer tz = tokenizer_init(p);
+  tokenizer_advance(&tz);
+  struct Parser pr = parser_init(&tz);
+  struct Tree* tr = parser_parse4(&pr);
+  return eval2(tr);
+}
