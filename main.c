@@ -22,3 +22,8 @@ void assert_int_eq(int actual, int expected) {
     printf("assertion failure: expected %d, got %d\n", expected, actual);
   }
 }
+
+// We can't yet call `eval` because we don't have a way of constructing a parse tree.
+// Instead, let's define a wrapper function that takes a string.
+
+int eval_string(const char*);
