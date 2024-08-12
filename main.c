@@ -383,3 +383,20 @@ size_t read_number(struct Tokenizer*);
 // smaller pieces
 
 int read_single_char(struct Tokenizer*);
+
+void tokenizer_advance(struct Tokenizer* tz) {
+  skip_whitespace(tz);
+  if (tokenizer_done(tz)) {
+    set_token(tz, TOKEN_EOF, 0);
+    return;
+  }
+
+  char c = tz->p[tz->i];
+  if (c >= '0' && c <= '9') {
+    size_t n = read_number(tz);
+    set_token(tz, TOKEN_NUM, n);
+  } else {
+    int typ = read_single_char(tz);
+    set_token(tz, typ, 1);
+  }
+}
