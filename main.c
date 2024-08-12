@@ -293,3 +293,7 @@ struct Token parser_current(struct Parser* p) {
 void parser_advance(struct Parser* p) {
   tokenizer_advance(&p->tz);
 }
+
+// we still need to define tokenizer_advance. but I think it will be more fun to
+// work on the evaluator instead
+
