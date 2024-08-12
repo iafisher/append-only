@@ -297,3 +297,12 @@ void parser_advance(struct Parser* p) {
 // we still need to define tokenizer_advance. but I think it will be more fun to
 // work on the evaluator instead
 
+
+// we can split eval into two cases: recursive and not
+
+// also, for consistency let's have eval take a pointer argument
+
+int eval2(struct Tree*);
+
+int eval_leaf(struct Tree*);
+int eval_binary(struct Tree*);
