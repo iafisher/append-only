@@ -119,3 +119,15 @@ struct Parser;
 struct Parser parser_init(struct Tokenizer* tz);
 struct Tree parser_parse(struct Parser*);
 
+
+// Take the opportunity now to define our token types.
+
+int TOKEN_LPAREN = 1;
+int TOKEN_RPAREN = 2;
+int TOKEN_NUM = 3;
+int TOKEN_PLUS = 4;
+int TOKEN_MINUS = 5;
+int TOKEN_MUL = 6;
+int TOKEN_DIV = 7;
+int TOKEN_EOF = 8;
+int TOKEN_UNKNOWN = 9;
