@@ -375,3 +375,6 @@ struct Tree parser_parse(struct Parser* p) {
 
 // this will probably come in handy
 void skip_whitespace(struct Tokenizer*);
+
+void set_token(struct Tokenizer*, int t, size_t n);
+size_t read_number(struct Tokenizer*);
