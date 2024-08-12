@@ -262,3 +262,11 @@ struct Tree* parser_parse3(struct Parser* p) {
 
 // now that the top-level parsing functions are done, let's work our way down.
 
+
+struct Token consume(struct Parser* p, int t) {
+  struct Token tk = parser_current(p);
+  if (tk.t != t) {
+    parser_bail("unexpected token type");
+  }
+  return tk;
+}
