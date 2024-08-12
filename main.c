@@ -198,3 +198,21 @@ struct Token consume(struct Parser*, int);
 int is_op_token(int t) {
   return t == TOKEN_PLUS || t == TOKEN_MINUS || t == TOKEN_MUL || t == TOKEN_DIV;
 }
+
+// let's take a shot at defining match_expression
+
+struct Token parser_current(struct Parser*);
+void parser_advance(struct Parser*);
+
+struct Tree* match_expression(struct Parser* p) {
+  consume(p, TOKEN_LPAREN);
+  struct Token t = parser_current(p);
+  if (!is_op_token(t.t)) {
+    parser_bail("expected op");
+  }
+  parser_advance(p);
+  struct Tree* left = match_expression(p);
+  struct Tree* right = match_expression(p);
+  consume(p, TOKEN_RPAREN);
+  return binary_node(*t.s, left, right);
+}
