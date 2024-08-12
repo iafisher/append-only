@@ -588,3 +588,9 @@ void test_eval5() {
     42
   );
 }
+
+int main(int argc, char* argv[]) {
+  test_eval4();
+  test_eval5();
+  printf("%d\n", eval_string4(argv[1]));
+}
