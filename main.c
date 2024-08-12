@@ -42,3 +42,20 @@ void test_eval2() {
     42
   );
 }
+
+// Now that we know what the final API is going to look like, let's start building
+// from the ground up.
+
+// We know that the first step is going to be to tokenize the input string into a
+// stream of tokens.
+
+struct Tokenizer;
+struct Token;
+
+// Tokens have a type, plus a slice (pointer + length) of the original strings.
+
+struct Token {
+  int t;
+  const char* s;
+  size_t n;
+};
