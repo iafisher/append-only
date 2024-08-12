@@ -216,3 +216,22 @@ struct Tree* match_expression(struct Parser* p) {
   consume(p, TOKEN_RPAREN);
   return binary_node(*t.s, left, right);
 }
+
+// problem: match_expression is wrong because it doesn't handle the base case of
+// an integer expression.
+
+// let's fix that
+
+struct Tree* match_binary_expression(struct Parser* p);
+
+struct Tree* match_expression2(struct Parser* p) {
+  struct Token t = parser_current(p);
+  if (t.t == TOKEN_LPAREN) {
+    return match_binary_expression(p);
+  } else if (t.t == TOKEN_NUM) {
+    parser_advance(p);
+    return leaf_node(strtol(t.s, NULL, 10));
+  } else {
+    parser_bail("expected expression");
+  }
+}
