@@ -250,3 +250,12 @@ struct Tree* match_binary_expression(struct Parser* p) {
   consume(p, TOKEN_RPAREN);
   return binary_node(*t.s, left, right);
 }
+
+// now we need to redefine parser_parse2 (again) to use the new match_expression2
+struct Tree* parser_parse3(struct Parser* p) {
+  struct Tree* r = match_expression2(p);
+  if (!parser_done(p)) {
+    parser_bail("trailing input");
+  }
+  return r;
+}
