@@ -439,3 +439,14 @@ void set_token(struct Tokenizer* tz, int t, size_t n) {
   tz->t.n = n;
   tz->i += n;
 }
+
+size_t read_number(struct Tokenizer* tz) {
+  size_t n = 0;
+  while (tz->i + n < tz->n) {
+    if (!isdigit(tz->p[tz->i + n])) {
+      break;
+    }
+    n += 1;
+  }
+  return n;
+}
