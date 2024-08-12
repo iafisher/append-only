@@ -27,3 +27,9 @@ void assert_int_eq(int actual, int expected) {
 // Instead, let's define a wrapper function that takes a string.
 
 int eval_string(const char*);
+
+// Now we can write some basic eval tests.
+
+void test_eval1() {
+  assert_int_eq(eval_string("(+ 1 2)"), 3);
+}
