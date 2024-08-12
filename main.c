@@ -190,3 +190,6 @@ struct Tree* parser_parse2(struct Parser* p) {
   }
   return r;
 }
+
+// This seems like a function we'll need in the parser.
+struct Token consume(struct Parser*, int);
