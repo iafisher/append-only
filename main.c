@@ -460,3 +460,19 @@ void assert_token(struct Tokenizer* tz, int t) {
     printf("assertion failure: expected token %d, got %d\n", t, tk.t);
   }
 }
+
+void test_tokenizer1() {
+  struct Tokenizer tz = tokenizer_init("(+ 1 1)");
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_LPAREN);
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_PLUS);
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_NUM);
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_NUM);
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_RPAREN);
+  tokenizer_advance(&tz);
+  assert_token(&tz, TOKEN_EOF);
+}
