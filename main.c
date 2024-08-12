@@ -349,3 +349,10 @@ struct Parser parser_init(struct Tokenizer* tz) {
   p.tz = *tz;
   return p;
 }
+
+int eval_string(const char* p) {
+  struct Tokenizer tz = tokenizer_init(p);
+  struct Parser pr = parser_init(&tz);
+  struct Tree tr = parser_parse(&pr);
+  return eval2(&tr);
+}
