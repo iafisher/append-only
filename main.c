@@ -432,3 +432,10 @@ int read_single_char(struct Tokenizer* tz) {
     return TOKEN_UNKNOWN;
   }
 }
+
+void set_token(struct Tokenizer* tz, int t, size_t n) {
+  tz->t.t = t;
+  tz->t.s = tz->p + tz->i;
+  tz->t.n = n;
+  tz->i += n;
+}
