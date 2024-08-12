@@ -69,3 +69,6 @@ struct Tokenizer tokenizer_init(const char* p);
 // Also, retrieve the current token, and advance to the next token.
 struct Token tokenizer_current(struct Tokenizer*);
 void tokenizer_advance(struct Tokenizer*);
+
+// And a way to tell if the tokenizer has reached the end of the string.
+int tokenizer_done(struct Tokenizer*);
