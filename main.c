@@ -412,3 +412,23 @@ void skip_whitespace(struct Tokenizer* tz) {
     tz->i++;
   }
 }
+
+int read_single_char(struct Tokenizer* tz) {
+  char c = tz->p[tz->i]; // could have just passed in c instead of tz; oh well
+
+  if (c == '+') {
+    return TOKEN_PLUS;
+  } else if (c == '-') {
+    return TOKEN_MINUS;
+  } else if (c == '*') {
+    return TOKEN_MUL;
+  } else if (c == '/') {
+    return TOKEN_DIV;
+  } else if (c == '(') {
+    return TOKEN_LPAREN;
+  } else if (c == ')') {
+    return TOKEN_RPAREN;
+  } else {
+    return TOKEN_UNKNOWN;
+  }
+}
