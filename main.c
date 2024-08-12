@@ -96,3 +96,9 @@ struct Tokenizer tokenizer_init(const char* p) {
   // leave t undefined; users must call tokenizer_advance() first
   return tz;
 }
+
+// tokenizer_done is also easy
+
+int tokenizer_done(struct Tokenizer* tz) {
+  return tz->i >= tz->n;
+}
