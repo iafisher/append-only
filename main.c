@@ -144,3 +144,14 @@ struct Tree {
   int value;
   char op;
 };
+
+// Define our init functions
+#include <stdlib.h>
+
+struct Tree* binary_node(char op, struct Tree* left, struct Tree* right) {
+  struct Tree* r = malloc(sizeof *r);
+  r->left = left;
+  r->right = right;
+  r->op = op;
+  return r;
+}
