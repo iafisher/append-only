@@ -496,3 +496,6 @@ int eval_string3(const char* p) {
   struct Tree* tr = parser_parse3(&pr);
   return eval2(tr);
 }
+
+// I see what's wrong: consume() doesn't advance to the next token.
+// Unfortunately this is going to be very annoying to fix.
