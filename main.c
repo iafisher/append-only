@@ -508,3 +508,18 @@ struct Token consume2(struct Parser* p, int t) {
   parser_advance(p);
   return tk;
 }
+
+struct Tree* match_binary_expression2(struct Parser* p) {
+  consume2(p, TOKEN_LPAREN);
+  struct Token t = parser_current(p);
+  if (!is_op_token(t.t)) {
+    parser_bail("expected op");
+  }
+  parser_advance(p);
+  struct Tree* left = match_expression2(p);
+  // it's lucky I don't have to redefine match_expression2 or else I'd have to
+  // retype this whole thing...
+  struct Tree* right = match_expression2(p);
+  consume2(p, TOKEN_RPAREN);
+  return binary_node(*t.s, left, right);
+}
