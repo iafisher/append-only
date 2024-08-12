@@ -72,3 +72,14 @@ void tokenizer_advance(struct Tokenizer*);
 
 // And a way to tell if the tokenizer has reached the end of the string.
 int tokenizer_done(struct Tokenizer*);
+
+// Now we can define the Tokenizer data structure.
+struct Tokenizer {
+  const char* p;
+  // index of next character to read
+  size_t i;
+  // length of p
+  size_t n;
+  // current token
+  struct Token t;
+};
