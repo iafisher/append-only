@@ -131,3 +131,7 @@ int TOKEN_MUL = 6;
 int TOKEN_DIV = 7;
 int TOKEN_EOF = 8;
 int TOKEN_UNKNOWN = 9;
+
+// Some tree initialization functions
+struct Tree* binary_node(char op, struct Tree* left, struct Tree* right);
+struct Tree* leaf_node(int);
