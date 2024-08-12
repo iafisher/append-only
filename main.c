@@ -59,3 +59,13 @@ struct Token {
   const char* s;
   size_t n;
 };
+
+// Before we define the Tokenizer data structure, let's work out what the public
+// API will be.
+
+// Clearly we'll need a way to initialize the tokenizer from the input string.
+struct Tokenizer tokenizer_init(const char* p);
+
+// Also, retrieve the current token, and advance to the next token.
+struct Token tokenizer_current(struct Tokenizer*);
+void tokenizer_advance(struct Tokenizer*);
