@@ -10,3 +10,15 @@
 struct Tree;
 
 int eval(struct Tree);
+
+// Let's write a few test cases.
+
+// First, we'll need an assertion function.
+
+#include <stdio.h>
+
+void assert_int_eq(int actual, int expected) {
+  if (actual != expected) {
+    printf("assertion failure: expected %d, got %d\n", expected, actual);
+  }
+}
