@@ -83,3 +83,16 @@ struct Tokenizer {
   // current token
   struct Token t;
 };
+
+// Defining tokenizer_init is straightforward
+
+#include <string.h>
+
+struct Tokenizer tokenizer_init(const char* p) {
+  struct Tokenizer tz;
+  tz.p = p;
+  tz.i = 0;
+  tz.n = strlen(p);
+  // leave t undefined; users must call tokenizer_advance() first
+  return tz;
+}
