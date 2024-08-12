@@ -339,3 +339,13 @@ int eval2(struct Tree* tr) {
     return eval_leaf(tr);
   }
 }
+
+// we are now prepared to define eval_string
+// (it's a good thing we aren't using eval directly in the test cases, or else
+//  we'd have to redefine them to use eval2)
+
+struct Parser parser_init(struct Tokenizer* tz) {
+  struct Parser p;
+  p.tz = *tz;
+  return p;
+}
